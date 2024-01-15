@@ -18,13 +18,23 @@
         }
         .container {
             max-width: 800px;
-            margin: 0 0 0 auto; /* Adjusted margin for aligning to the left */
+            margin: 0 auto; /* Centering the container horizontally */
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8); /* Background color for the content */
+            background-color: rgba(0, 0, 0, 0.8);
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: left; /* Align content to the left */
+            text-align: center;
         }
+        .container2 {
+            max-width: 800px;
+            margin: 0 auto; /* Centering the container horizontally */
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
         h1 {
             text-align: center;
             margin-bottom: 20px;
@@ -58,22 +68,65 @@
         a:hover {
             text-decoration: underline;
         }
+        .button-container {
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 20px;
+            margin-top: 0;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: red;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+            position: relative;
+            overflow: hidden;
+            background-color: black;
+            transition: box-shadow 0.4s ease-out;
+        }
+
+        /* Rainbow glow effect on button hover */
+        .button-container button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
+            transition: all 0.5s ease-out;
+            opacity: 0;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            z-index: -1;
+        }
+
+        .button-container button:hover::before {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+    </style>
     </style>
     
 </head>
 <body>
     <header>
+        <div class="button-container">
+            <button><a href="Bp.html">Battle Pass</a></button>
+            <button><a href="Crew_pack.html">Crew Pack</a></button>
+            <button><a href="Itemshop.html">Item Shop</a></button>
+            <button><a href="Vbuck.html">V-Bucks</a></button>
+        </div>
+        <div class="container">
         <h1>Welcome to the Fortnite Information Hub</h1>
-        <nav>
-            <ul>
-                <li><a href="Bp.html">Battle Pass</a></li>
-                <li><a href="Crew_pack.html">Crew Pack</a></li>
-                <li><a href="Itemshop.html">Item Shop</a></li>
-                <li><a href="Vbuck.html">V-Bucks</a></li>
-            </ul>
-        </nav>
+        </div>
+       <br>
     </header>
-    <div class="container" >
+    <div class="container2" >
         <h1>Welcome to the Fortnite Information Page</h1>
         <p>Fortnite is a popular online video game developed by Epic Games. It features different game modes including Battle Royale, Save the World, and Creative.</p>
 
