@@ -1,136 +1,135 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
-::selection{
-  color: #fff;
-  background: #007bff;
+h1 {
+  text-align: center;
+  margin-top: 50px;
 }
-body{
-  padding: 10px;
+/* Masonry image gallery styling */
+.gallery {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
 }
-.wrapper{
-  max-width: 1100px;
+.gallery .images {
+  gap: 15px;
+  max-width: 85%;
+  margin: 40px 0;
+  columns: 5 310px;
+  list-style: none;
 }
-.gallery{
+.gallery .images .img {
   display: flex;
-  flex-wrap: wrap;
-}
-.gallery .image{
-  padding: 7px;
-  width: calc(100% / 3);
-}
-.gallery .image span{
-  display: flex;
-  width: 100%;
+  cursor: pointer;
   overflow: hidden;
+  position: relative;
+  margin-bottom: 14px;
+  border-radius: 4px;
 }
-.gallery .image img{
+.gallery .images img {
   width: 100%;
-  vertical-align: middle;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease;
 }
-.gallery .image:hover img{
+
+.gallery .images .img:hover img {
   transform: scale(1.1);
 }
 
-.preview-box{
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
-  background: #fff;
-  max-width: 700px;
+/* Image lightbox styling */
+.lightbox {
+  left: 0;
+  top: 0;
   width: 100%;
+  height: 100%;
   z-index: 5;
+  position: fixed;
+  visibility: hidden;
+  background: rgba(0,0,0,0.65);
+}
+.lightbox.show {
+  visibility: visible;
+}
+.lightbox .wrapper {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  padding: 20px;
+  max-width: 850px;
+  background: #fff;
+  border-radius: 6px;
   opacity: 0;
   pointer-events: none;
-  border-radius: 3px;
-  padding: 0 5px 5px 5px;
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: transform 0.1s ease;
 }
-.preview-box.show{
+.lightbox.show .wrapper {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
-  transition: all 0.3s ease;
 }
-.preview-box .details{
+.wrapper :where(header, .details) {
   display: flex;
   align-items: center;
-  padding: 12px 15px 12px 10px;
+}
+.wrapper header {
   justify-content: space-between;
 }
-.preview-box .details .title{
-  display: flex;
-  font-size: 18px;
-  font-weight: 400;
+header .details i {
+  font-size: 1.7rem;
 }
-.details .title p{
-  margin: 0 5px;
+header .details span {
+  font-size: 1.2rem;
+  margin-left: 10px;
 }
-.details .title p.current-img{
-  font-weight: 500;
-}
-.details .icon{
-  color: #007bff;
-  font-size: 20px;
+header .buttons i {
+  height: 40px;
+  width: 40px;
   cursor: pointer;
-}
-.preview-box .image-box{
-  display: flex;
-  width: 100%;
-  position: relative;
-}
-.image-box .slide{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  display: inline-block;
   color: #fff;
-  font-size: 30px;
-  cursor: pointer;
-  height: 50px;
-  width: 60px;
-  line-height: 50px;
+  margin-left: 10px;
+  background: #6C757D;
+  font-size: 1.25rem;
+  line-height: 40px;
   text-align: center;
-  border-radius: 3px;
+  border-radius: 4px;
+  transition: 0.2s ease;
 }
-.slide.prev{
-  left: 0px;
+header .buttons i:hover {
+  background: #5f666d;
 }
-.slide.next{
-  right: 0px;
+.wrapper .preview-img {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
 }
-.image-box img{
+.preview-img .img {
+  max-height: 65vh;
+}
+.preview-img img {
   width: 100%;
-  border-radius: 0 0 3px 3px;
-}
-.shadow{
-  position: fixed;
-  top: 0;
-  left: 0;
   height: 100%;
-  width: 100%;
-  z-index: 2;
-  display: none;
-  background: rgba(0,0,0,0.45);
+  object-fit: contain;
 }
 
-@media(max-width: 1000px){
-  .gallery .image{
-    width: calc(100% / 2);
+/* Responsive media query code */
+@media screen and (max-width: 688px) {
+  .lightbox .wrapper {
+    padding: 12px;
+    max-width: calc(100% - 26px);
   }
-}
-@media(max-width: 600px){
-  .gallery .image{
-    width: 100%;
-    padding: 4px;
+  .wrapper .preview-img {
+    margin-top: 15px;
+  }
+  .gallery .images {
+    max-width: 100%;
+    padding: 0 13px;
+    margin-top: 20px;
   }
 }
