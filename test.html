@@ -26,13 +26,13 @@
         }
 
         #image-container {
-            width: 100%;
+            width: 300%;
             display: flex;
             transition: transform 0.5s ease-in-out;
         }
 
         .image {
-            width: 100%;
+            width: 33.333%;
             height: 100%;
             object-fit: cover;
         }
@@ -51,6 +51,14 @@
 
         #text-container {
             left: 0;
+        }
+
+        #text-container-2 {
+            left: 100%;
+        }
+
+        #text-container-3 {
+            left: 200%;
         }
 
         #buttons {
@@ -81,11 +89,11 @@
                     textContainer.innerHTML = 'Text for Battle Pass sliding from below';
                     break;
                 case 'crew-pack':
-                    imageContainer.style.transform = 'translateX(-100%)';
+                    imageContainer.style.transform = 'translateX(-33.333%)';
                     textContainer.innerHTML = 'Text for Crew Pack sliding from below';
                     break;
                 case 'item-shop':
-                    imageContainer.style.transform = 'translateX(-200%)';
+                    imageContainer.style.transform = 'translateX(-66.666%)';
                     textContainer.innerHTML = 'Text for Item Shop sliding from below';
                     break;
                 default:
@@ -104,7 +112,13 @@
             <img class="image" src="itemshop.png" alt="Fortnite Item Shop">
         </div>
         <div id="text-container" class="text-container">
-            <p>Text for Battle Pass sliding from below</p>
+            <p>The battle pass</p>
+        </div>
+        <div id="text-container-2" class="text-container">
+            <p>The crew pack</p>
+        </div>
+        <div id="text-container-3" class="text-container">
+            <p>Text for Item Shop sliding from below</p>
         </div>
         <div id="buttons">
             <button onclick="changeTheme('battle-pass')">Battle Pass</button>
