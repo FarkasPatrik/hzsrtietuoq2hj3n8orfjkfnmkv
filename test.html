@@ -18,21 +18,29 @@
         }
 
         #box {
-            width: 800px;
-            height: 600px;
+            width: 1920px;
+            height: 1080px;
             border: 2px solid #000;
             overflow: hidden;
             position: relative;
+            background-color: rgba(0, 0, 0, 0.5); /* Fekete, 50% átlátszóság */
         }
 
         #image-container {
             width: 300%;
             display: flex;
             transition: transform 0.5s ease-in-out;
+            position: relative; /* Hozzáadva a pozícióhoz */
+        }
+
+        .image-container {
+            width: 33.333%;
+            height: 100%;
+            overflow: hidden;
         }
 
         .image {
-            width: 33.333%;
+            width: 100%;
             height: 100%;
             object-fit: cover;
         }
@@ -54,11 +62,11 @@
         }
 
         #text-container-2 {
-            left: 100%;
+            left: 33.333%;
         }
 
         #text-container-3 {
-            left: 200%;
+            left: 66.666%;
         }
 
         #buttons {
@@ -66,7 +74,7 @@
             bottom: 10px;
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* Középre igazítás */
         }
 
         button {
@@ -77,24 +85,32 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
+        #prev-button {
+            /* position: absolute; */
+            /* left: 10px; */
+            margin-right: 10px; /* Jobb oldalon helyezkedik el a margin segítségével */
+        }
+
+        #next-button {
+            /* position: absolute; */
+            /* right: 10px; */
+            margin-left: 10px; /* Bal oldalon helyezkedik el a margin segítségével */
+        }
     </style>
     <script>
-        function changeTheme(theme) {
+        function changeSlide(index) {
             const imageContainer = document.getElementById('image-container');
-            const textContainer = document.getElementById('text-container');
 
-            switch (theme) {
-                case 'battle-pass':
+            switch (index) {
+                case 0:
                     imageContainer.style.transform = 'translateX(0)';
-                    textContainer.innerHTML = 'Text for Battle Pass sliding from below';
                     break;
-                case 'crew-pack':
+                case 1:
                     imageContainer.style.transform = 'translateX(-33.333%)';
-                    textContainer.innerHTML = 'Text for Crew Pack sliding from below';
                     break;
-                case 'item-shop':
+                case 2:
                     imageContainer.style.transform = 'translateX(-66.666%)';
-                    textContainer.innerHTML = 'Text for Item Shop sliding from below';
                     break;
                 default:
                     break;
@@ -106,10 +122,10 @@
 
 <div id="container">
     <div id="box">
-        <div id="image-container">
-            <img class="image" src="battle_pass_image.jpg" alt="Fortnite Battle Pass">
-            <img class="image" src="crewpack.jpg" alt="Fortnite Crew Pack">
-            <img class="image" src="itemshop.png" alt="Fortnite Item Shop">
+        <div id="image-container" class="image-container">
+            <div class="image"><img src="battle_pass_image.jpg" alt="Fortnite Battle Pass"></div>
+            <div class="image"><img src="crewpack.jpg" alt="Fortnite Crew Pack"></div>
+            <div class="image"><img src="itemshop.jpg" alt="Fortnite Item Shop"></div>
         </div>
         <div id="text-container" class="text-container">
             <p>The battle pass</p>
@@ -121,9 +137,8 @@
             <p>Text for Item Shop sliding from below</p>
         </div>
         <div id="buttons">
-            <button onclick="changeTheme('battle-pass')">Battle Pass</button>
-            <button onclick="changeTheme('crew-pack')">Crew Pack</button>
-            <button onclick="changeTheme('item-shop')">Item Shop</button>
+            <button id="prev-button" onclick="changeSlide(0)">Previous</button>
+            <button id="next-button" onclick="changeSlide(1)">Next</button>
         </div>
     </div>
 </div>
