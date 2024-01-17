@@ -43,6 +43,7 @@
 </head>
 
 <body>
+  
     <header>
         <h1>Fortnite Téma</h1>
     </header>
@@ -53,6 +54,7 @@
         <a href="index4.html">Galéria</a>
         <a href="index2.html">Kapcsolat</a>
     </nav>
+    <div id="preloader"></div>
       <div class="container">
          <div class="card__container">
             <article class="card__article">
@@ -85,6 +87,25 @@
                </div>
             </article>
          </div>
+        
       </div>
+      
+      <script>
+         var loader = document.getElementById("preloader");
+         window.addEventListener("load", function(){
+            loader.style.display = "none"
+         function closepreloader(){
+            document.getElementById("preloader").style.display = 'none';
+            }
+            window.addEventListener("load",function(){
+               setTimeout(closepreloader, 20000);
+            
+        })
+
+
+         })
+
+      </script>
+
    </body>
 </html>
