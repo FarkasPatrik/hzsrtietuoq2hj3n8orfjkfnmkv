@@ -62,22 +62,7 @@ a:hover::before{
     }
 }
 @media screen and (max-width:1280px){
-    .item{
-        width: 1180px;
-        height: 720;
-    }
-    .container{
-        width: 1280px;
-        height: 720px;
-    }
-    body{
-        width: 1280px;
-        height: 720px;
-    }
-    .content{
-        width: 1180;
-        height: 720;
-    }
+    
 }
 a::after{
     content: '';
@@ -105,10 +90,11 @@ a:hover span{
 .item{
     width:200px;
     height:300px;
-    background-position: 50% 50%;
+    background-position: center center;
+    background-attachment: fixed;
     display: inline-block;
     transition: 0.5s;
-    background-size: cover;
+    background-size: 100vw 100vh;
     position: absolute;
     z-index: 1;
     top:50%;
