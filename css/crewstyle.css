@@ -7,7 +7,7 @@
 body{
 	display:flex;
 	justify-content: center;
-	background-image: url(/img/CrewBackground.jpeg);
+	background-image: url(../img/CrewBackground.jpeg);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
